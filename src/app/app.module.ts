@@ -12,6 +12,10 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { InputsModule } from '@progress/kendo-angular-inputs';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { NewReferedComponent } from './refereds/new-refered/new-refered.component';
+import { ExpedientComponent } from './expedient/expedient.component';
 
 @NgModule({
   imports: [
@@ -22,12 +26,15 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     RouterModule,
     AppRoutingModule,
     NgbModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    InputsModule,
+    GridModule
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
-
+    AdminLayoutComponent,
+    NewReferedComponent,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,6 +15,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ReferedsComponent } from '../../refereds/refereds.component';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { ExpedientComponent } from '../../expedient/expedient.component';
 
 @NgModule({
   imports: [
@@ -23,7 +25,10 @@ import { ReferedsComponent } from '../../refereds/refereds.component';
     FormsModule,
     ChartsModule,
     NgbModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    GridModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   declarations: [
     DashboardComponent,
@@ -35,6 +40,7 @@ import { ReferedsComponent } from '../../refereds/refereds.component';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
+    ExpedientComponent
   ]
 })
 

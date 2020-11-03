@@ -1,0 +1,115 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <form [formGroup]="searchExpedient" class="col-lg-12">
+        <div class="card">
+          <div class="col-md-8 pr-1 mt-3">
+            <div class="form-group">
+              <input id="urlFind" type="text" class="form-control" placeholder="URL" formControlName="urlFind">
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary m-4" (click)="findExpedient()"
+          [disabled]="searchExpedient.invalid">Buscar</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">Expedientes</h5>
+        </div>
+        <div class="card-body">
+          <kendo-grid [kendoGridBinding]="this.expedientData" 
+          [height]="410" 
+          [filterable]="true" 
+          [sortable]="true" 
+          [pageable]="{ pageSizes: [5, 25, 50, 100] }" >
+            <kendo-grid-column field="court" title="Juzgado" width="100">
+            </kendo-grid-column>
+            <kendo-grid-column field="author" title="Actor" width="100">
+            </kendo-grid-column>
+            <kendo-grid-column field="defendant" title="Demandado" width="100">
+            </kendo-grid-column>
+            <kendo-grid-column field="summary" title="Resumen" width="250">
+            </kendo-grid-column>
+            <kendo-grid-column title="" [width]="50">
+              <ng-template kendoGridCellTemplate let-dataItem>
+                <div class="np__table--row">
+                  <button id="edit-plan" type="button" class="btn btn btn-link btn-sm btn-grid-recurrence" (click)="showExpedient(dataItem)">
+                    <span class="fa fa-search" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-messages
+              noRecords="No hay datos disponibles."
+              pagerFirstPage="Ir a la primera página"
+              pagerPreviousPage="Ir a la página anterior"
+              pagerNextPage="Ir a la página siguiente"
+              pagerLastPage="Ir a la última página"
+              pagerPage="Página"
+              pagerOf="de"
+              pagerItems="ítems"
+              pagerItemsPerPage="ítems por página"
+              filter="Filter"
+              filterEqOperator="Es igual a"
+              filterNotEqOperator="No es igual a"
+              filterIsNullOperator="Es nulo"
+              filterIsNotNullOperator="No es nulo"
+              filterIsEmptyOperator="Está vacío"
+              filterIsNotEmptyOperator="No está vacío"
+              filterStartsWithOperator="Comienza con"
+              filterContainsOperator="Contiene"
+              filterNotContainsOperator="No contiene"
+              filterEndsWithOperator="Termina en"
+              filterGteOperator="Es mayor o igual que"
+              filterGtOperator="Es mayor que"
+              filterLteOperator="Es menor o igual que"
+              filterLtOperator="Es menor o igual que"
+              filterIsTrue="Sí"
+              filterIsFalse="No"
+            >
+            </kendo-grid-messages>
+        </kendo-grid>
+        </div>
+      </div>
+    </div>
+     <!-- Modal -->
+    <div class="modal fade" id="showExpedient" tabindex="-1" role="dialog" aria-labelledby="showExpedientLabel" aria-hidden="true" width="600px">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="showExpedientLabel">Expediente</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="card" style="width: 100%;">
+              <div class="card-body">
+                <h5 class="card-title">Actor</h5>
+                <p class="card-text">{{this.showExpedientData.author}}</p>
+                <h5 class="card-title">Demandado</h5>
+                <p class="card-text">{{this.showExpedientData.defendant}}</p>
+                <h5 class="card-title">Juzgado</h5>
+                <p class="card-text">{{this.showExpedientData.court}}</p>
+                <h5 class="card-title">Resumen</h5>
+                <p class="card-text">{{this.showExpedientData.summary}}</p>
+              </div>
+              <ul class="list-group list-group-flush" *ngFor="let notifications of this.showExpedientData.notifications" >
+                <li class="list-group-item bold">{{notifications.date}}</li>
+                <li class="list-group-item">{{notifications.description}}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

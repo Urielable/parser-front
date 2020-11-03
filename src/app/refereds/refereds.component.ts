@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReferedsComponent implements OnInit {
 
+  referredData: any = [];
+
   constructor() { }
 
   ngOnInit(): void {
+    
+  }
+
+  showReference(dataItem){
+
   }
 
 }
