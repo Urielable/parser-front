@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  jasper_api: 'http://0.0.0.0:3000'
+  jasper_api: 'https://api.jasper-project.online'
 };

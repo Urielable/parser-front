@@ -36,7 +36,6 @@ import { ExpedientComponent } from './expedient/expedient.component';
     NewReferedComponent,
     
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

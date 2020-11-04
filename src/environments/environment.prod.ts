@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  jasper_api: 'http://localhost:3000'
+  jasper_api: 'https://api.jasper-project.online'
 };
